@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 
@@ -9,71 +7,59 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
     <title>Read a JSON File</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-    <style>
-        #tbstyle {
-            font-family: Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 50%;
-        }
-
-        #tbstyle td,
-        #tbstyle th {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
-        #tbstyle tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        #tbstyle tr:hover {
-            background-color: #ddd;
-        }
-
-        #tbstyle th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #859161;
-            color: White;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container" style="width:500px;">
+    <div class="container">
         <div class="table-container">
             <?php
-        require_once 'readJson.php';
+            require_once 'readJson.php';
 
-        $filename = 'file.json';
-        $users = readJsonFile($filename);
+            $filename = 'books.json';
+            $users = readJsonFile($filename);
 
             ?>
-                <table id="tbstyle">
-                    <tbody>
+
+            <div class="add-book-button mb-3 text-right">
+                <form action="addBook.php">
+                    <button class="btn btn-primary">Add Book</button>
+                </form>
+            </div>
+
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Available</th>
+                        <th>Pages</th>
+                        <th>ISBN</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($users as $user) { ?>
                         <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Gender</th>
-                            <th>Education</th>
-                            <th>Occupation</th>
+                            <td><?= $user->title; ?></td>
+                            <td><?= $user->author; ?></td>
+                            <td><?= $user->available ? 'Yes' : 'No'; ?></td>
+                            <td><?= $user->pages; ?></td>
+                            <td><?= $user->isbn; ?></td>
+                            <td>
+                                <form action="updateBook.php" method="post" style="display: inline;">
+                                    <input type="hidden" name="isbn" value="<?= $user->isbn; ?>">
+                                    <button type="submit" class="btn btn-warning btn-sm">Update</button>
+                                </form>
+
+                                <form action="delete.php" method="get" style="display: inline;">
+                                    <input type="hidden" name="isbn" value="<?= $user->isbn; ?>">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
                         </tr>
-                        <?php foreach ($users as $user) { ?>
-                            <tr>
-                                <td> <?= $user->name; ?> </td>
-                                <td> <?= $user->age; ?> </td>
-                                <td> <?= $user->gender; ?> </td>
-                                <td> <?= $user->education; ?> </td>
-                                <td> <?= $user->occupation; ?> </td>
-                            </tr>
-                    <?php }
-                    
-                    ?>
-                    </tbody>
-                </table>
+                    <?php } ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
