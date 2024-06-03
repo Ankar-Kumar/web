@@ -1,7 +1,7 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['isbn'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['isbn'])) {
 
-    $isbn = $_GET['isbn'];
+    $isbn = $_POST['isbn'];
 
     $filename = 'books.json';
     $books = json_decode(file_get_contents($filename), true);
