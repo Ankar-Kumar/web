@@ -17,16 +17,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-
-
-
-        <div class="mt-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="{{route('employees.index')}}" class="btn btn-info">Cancel</a>
-    </div>
     </form>
-
-    
 
 @endsection
 
