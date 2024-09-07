@@ -24,3 +24,14 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
     }
 }
+/**
+<th>ID</th>
+        <th>Name</th>
+        <th>Job_title</th>
+        <th>Salary</th>
+        <th>Email</th>
+        <th>Mobile_no</th>
+        <th>Address</th>
+        <th>other</th>
+
+*/

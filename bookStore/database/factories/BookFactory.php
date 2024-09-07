@@ -16,6 +16,7 @@ class BookFactory extends Factory
      */
     public function definition(): array
     {
+        //faker class dia book table toiri krbo use fake data
         return [
             'title'=> fake()->sentence,
             'author'=> fake()->name,

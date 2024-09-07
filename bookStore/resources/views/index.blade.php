@@ -5,10 +5,12 @@ Books
 
 @section('content')
 <div class="d-flex justify-content-between mb-3">
-    <form action="" method="get">
+    <form action="{{route('books.search')}}" method="get">
         <div class="input-group">
-            <input type="text" class="form-control" name="search" placeholder="Search books">
-            <button class="btn btn-outline-secondary" type="submit">Search</button>
+            <input type="text"  class="form-control" name="search" placeholder="Search books">
+            <div class="ms-2">
+                <button class="btn btn-danger" type="submit" >Search</button>
+            </div>
         </div>
     </form>
     <a href="{{Route('books.create')}}" class="btn btn-success">Add Book</a>

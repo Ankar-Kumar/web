@@ -82,6 +82,14 @@ class BookController extends Controller
 
         return redirect()->route('books.index')->with('success', 'Book Updated Succesfully');
     }
+    public function search(Request $request){
+        $search = $request->input('search');
+        $books= Book::where('title','like','%'.$search.'%')
+        ->orWhere('author','like','%'.$search.'%')
+        ->paginate(10);
+        
+        return View('index')->with('books',$books);
+    }
 
 
 }

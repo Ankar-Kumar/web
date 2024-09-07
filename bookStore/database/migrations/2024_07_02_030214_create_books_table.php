@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // amar relation schema bole dite hbe
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('title', 255);

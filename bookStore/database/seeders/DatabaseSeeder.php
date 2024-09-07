@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test1@example.com',
         ]);
-        Book::truncate();
+        Book::truncate(); //delete and then insert 
         Book::factory()->count(100)->create();
     }
 }

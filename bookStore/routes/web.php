@@ -27,3 +27,4 @@ Route::delete('/books/{id}', [BookController::class, 'destroy'])->name('books.de
 //for update book
 Route::get('books/{id}/edit', [BookController::class, 'edit'])->name('books.edit');
 Route::patch('/books/{book}', [BookController::class, 'update'])->name('books.update');
+Route::get('/books/search', [BookController::class, 'search'])->name('books.search');
