@@ -3,9 +3,7 @@
 
 @section('page-content')
 <style>
-    .pagination > li {
-        margin-left: 10px; /* Adjust this value to increase spacing */
-    }
+    
 </style>
 
 
@@ -52,7 +50,7 @@
 </table>
 
 <div class="d-flex justify-content-center">
-    <ul class="pagination" style="list-style-type: none; padding-left: 0;">
+    
         {{$employs->links()}}
     </ul>
 </div>

@@ -23,15 +23,15 @@ class EmployeeController extends Controller
  
     public function store(Request $request)
     {
-       $request->validate([
-            'name' => 'required|string|max:255',
-            'joining_date' => 'required|date',
-            'job_title' => 'required|string|max:255',
-            'salary' => 'required|numeric',
-            'email' => 'required|email|unique:employees,email',
-            'mobile_no' => 'required|string|max:20',
-            'address' => 'required|string|max:255'
-        ]);
+    //    $request->validate([
+    //         'name' => 'required|string|max:255',
+    //         'joining_date' => 'required|date',
+    //         'job_title' => 'required|string|max:255',
+    //         'salary' => 'required|numeric',
+    //         'email' => 'required|email|unique:employees,email',
+    //         'mobile_no' => 'required|string|max:20',
+    //         'address' => 'required|string|max:255'
+    //     ]);
         $employ= Employee::create($request->all());
         // dd($employ);
         $employ->save();
